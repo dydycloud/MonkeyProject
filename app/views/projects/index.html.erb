@@ -1,0 +1,39 @@
+<%= content_for :title, "Projects-Home" %>
+<h3>Projects <small>|| <%= link_to 'New Project', new_project_path %></small></h3>
+<br />
+<div class="row">
+    <div class="large-6 columns">
+        <% @projects.each do |project| %>
+          <% if project.complete == true %> 
+            <div class="success label 3 columns">
+            <% else %>
+            <div class="alert label 3 columns">
+          <% end %>
+              <h3><%= project.name %></h3>
+              <p><%= project.description %></p> 
+              <p>Dead Line : <%= distance_of_time_in_words(@from_time, project.dead_line) %></p>
+              <%= link_to 'Show', project, :class => 'button tiny round' %>
+              <%= link_to 'Edit', edit_project_path(project), :class => 'button tiny round' %>
+              <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button tiny round' %>
+            </div>
+            <hr>
+        <% end %>
+    </div>
+    <div class="large-6 columns">
+      <div class="">
+        <h5><%= @from_time.to_formatted_s(:rfc822)   %></h5>
+      </div>
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+    </div>
+</div>
