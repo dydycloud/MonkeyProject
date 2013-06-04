@@ -1,0 +1,52 @@
+<%= content_for :title, "Projects-Home" %>
+<div class="row">
+    <div class="large-4 columns">
+        <% @projects.each do |project| %> 
+          <div class="3 columns">
+            <h3>
+              <% if project.complete == true %>
+                  <hr class="success label"/>
+              <% else %>
+                  <hr class="alert label" />
+              <% end %>
+              <%= project.name %>
+            </h3>
+                <p>Dead Line : <%= distance_of_time_in_words(@from_time, project.dead_line) %></p>
+                <p>
+                  <%= link_to 'Show', project %> |
+                  <%= link_to 'Edit', edit_project_path(project) %> |
+                  <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </p>
+          </div>
+        <% end %>
+        <%= link_to 'View all', projects_path %></small></h3>
+    </div>
+    <div class="large-4 columns">
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+    </div>
+    <div class="large-4 columns">
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+      <div class="panel">
+        <h5>Panel Title</h5>
+        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+      </div>
+    </div>
+</div>
